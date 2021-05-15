@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ro.timisoaraazi.timisoaraazi">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.TimisoaraAzi">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+<!--
+<php>
+
+        $LIMIT = 20;
+        include("wp-config.php");
+
+        $connection = mysqli_connect(DB_HOST, DB_USER,DB_PASSWORD,DB_NAME);
+
+        //echo "Initial character set is: " . mysqli_character_set_name($connection);
+
+        // Change character set to utf8
+        mysqli_set_charset($connection,"utf8");
+
+        //echo "Current character set is: " . mysqli_character_set_name($connection);
+
+        $query  = "SELECT a.ID, a.post_date, a.post_title, a.post_content, a.post_name, a.guid, b.meta_value, c.guid as imgurl
+        FROM wp_posts a LEFT JOIN wp_postmeta b ON b.post_id=a.ID AND b.meta_key='_thumbnail_id'
+        LEFT JOIN wp_posts c ON b.meta_value = c.ID
+        WHERE a.post_type='post' AND a.post_status='publish' ORDER BY a.ID desc limit $LIMIT";
+
+        $result = mysqli_query($connection,$query);
+
+        $data = [];
+
+        if ($result)
+        {
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+        $data[] = [
+        'ID' => $row['ID'],
+        'post_date' => $row['post_date'],
+        'post_title' => utf8_encode($row['post_title']),
+        'post_content' => utf8_encode($row['post_content']),
+        //'post_content' => strip_tags(utf8_encode($row['post_content'])),
+        'post_name' => utf8_encode($row['post_name']),
+        'guid' => utf8_encode($row['guid']),
+        'imgurl' => utf8_encode($row['imgurl']),
+        ];
+
+        //echo $row['post_content']."<hr>";
+        }
+        }
+
+        //var_dump($data);
+
+        $x = json_encode($data);
+
+        echo $x;
+
+</php>
+-->
